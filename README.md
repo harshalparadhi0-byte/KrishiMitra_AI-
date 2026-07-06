@@ -1,8 +1,5 @@
 # krishimitra-ai
 
-ReAct agent
-Agent generated with `agents-cli` version `1.0.0`
-
 # 📖 Overview
 KrishiMitra AI is a production-ready **multi-agent AI platform** designed to help farmers make intelligent agricultural decisions using Google ADK.
 Instead of relying on a single LLM, the platform uses an **Executive Orchestrator** that coordinates multiple specialist AI agents. Each agent solves a specific agricultural problem, while the orchestrator combines their outputs into one farmer-friendly recommendation.
