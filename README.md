@@ -1,68 +1,99 @@
 # krishimitra-ai
 
-# 📖 Overview
-KrishiMitra AI is a production-ready **multi-agent AI platform** designed to help farmers make intelligent agricultural decisions using Google ADK.
-Instead of relying on a single LLM, the platform uses an **Executive Orchestrator** that coordinates multiple specialist AI agents. Each agent solves a specific agricultural problem, while the orchestrator combines their outputs into one farmer-friendly recommendation.
-The system supports:
+## 📖 Overview
 
-- Soil Health Analysis
-- Weather Intelligence
-- Crop Recommendation
-- Disease Diagnosis
-- Fertilizer Planning
-- Irrigation Advisory
-- Market Intelligence
-- Government Schemes
-- Personalized Farming Guidance
+**KrishiMitra AI** is a production-ready **Hierarchical Multi-Agent AI System** built using the **Google Agent Development Kit (Google ADK)** to demonstrate how multiple specialized AI agents can collaborate under a central orchestrator to solve complex agricultural problems.
+
+Instead of relying on a single Large Language Model (LLM), the system intelligently analyzes each farmer's query, plans an execution workflow, dynamically invokes only the required specialist agents, and synthesizes their outputs into a single, accurate, and easy-to-understand recommendation. This architecture improves reasoning quality, modularity, scalability, and maintainability while showcasing modern **Agentic AI**, **Workflow Orchestration**, **Streaming AI**, **Session Memory**, and **Production-Grade Backend Design**.
+
+KrishiMitra AI provides intelligent assistance across multiple agricultural domains, including:
+
+- 🌱 Soil Health Analysis
+- 🌦️ Weather Intelligence & Forecast-Based Advisory
+- 🌾 Crop Recommendation
+- 🦠 Disease Diagnosis
+- 🧪 Fertilizer Planning
+- 💧 Irrigation Advisory
+- 📈 Market Intelligence & Price Analysis
+- 🏛️ Government Schemes & Subsidies
+- 🔔 Proactive Farming Notifications
+- 👨‍🌾 Personalized End-to-End Agricultural Guidance
+
+Designed as a complete AI-powered farming assistant, KrishiMitra AI demonstrates how Google ADK can be used to build real-world, production-scale multi-agent systems capable of solving practical problems through intelligent collaboration between autonomous AI agents.
+
 ---
 
-## Project Structure
+## 📂 Project Structure
+
+```text
 krishimitra-ai/
-├── app/         # Core agent code
-│   ├── agent.py               # Main agent logic
-│   ├── fast_api_app.py        # FastAPI Backend server
-│   └── app_utils/             # App utilities and helpers
-├── tests/                     # Unit, integration, and load tests
-├── GEMINI.md                  # AI-assisted development guide
-└── pyproject.toml             # Project dependencies
+│
+├── 📁 app/
+│   ├── 📄 agent.py                # Main multi-agent workflow & orchestration
+│   ├── 📄 fast_api_app.py         # FastAPI backend server
+│   ├── 📁 app_utils/              # Shared utilities & helper functions
+│   ├── 📄 config.py               # Configuration management
+│   ├── 📄 memory.py               # Session & memory handling
+│   └── 📄 mcp_server.py           # MCP server integration
+│
+├── 📁 frontend/
+│   ├── React + Vite Application
+│   ├── Tailwind CSS UI
+│   ├── Chat Interface
+│   └── Dashboard Pages
+│
+├── 📁 tests/
+│   ├── Unit Tests
+│   ├── Integration Tests
+│   └── Workflow Validation
+│
+├── 📁 deployment/                 # Deployment configuration
+├── 📁 data/                       # Project data & resources
+├── 📁 scratch/                    # Development utilities
+│
+├── 📄 pyproject.toml              # Python dependencies
+├── 📄 uv.lock                     # Locked dependency versions
+├── 📄 GEMINI.md                   # AI development guide
+├── 📄 README.md                   # Project documentation
+└── 📄 agents-cli-manifest.yaml    # Google Agents CLI configuration
 ```
 
-## System Architecture
+# 🏗️ System Architecture
 
-                    🌾 Farmer
-                         │
-                         ▼
-                React + Vite Frontend
-                         │
-              REST API + SSE Streaming
-                         │
-                         ▼
-                  FastAPI Backend
-                         │
-                         ▼
-          Executive Orchestrator (Google ADK)
-                         │
-     ┌───────────────────┴────────────────────┐
-     │                                        │
-     ▼                                        ▼
-Conversation Intelligence           Security Checkpoint
-     │                                        │
-     └───────────────────┬────────────────────┘
-                         ▼
-                  Task Planner Agent
-                         │
- ┌────────────────────────────────────────────────────┐
- │                                                    │
- ▼                                                    ▼
-Weather      Soil      Crop      Disease      Irrigation
-Market     Fertilizer  Govt Schemes   Notifications
- └────────────────────────────────────────────────────┘
-                         │
-                         ▼
-              Decision Synthesizer Agent
-                         │
-                         ▼
-          Farmer Friendly Final Recommendation
+```text
+👨‍🌾 Farmer
+│
+└── 🌐 React + Vite Frontend
+    │
+    └── ⚡ FastAPI Backend
+        │
+        └── 🧠 Google ADK Executive Orchestrator
+            │
+            ├── 💬 Conversation Intelligence Agent
+            │
+            ├── 🔒 Security Checkpoint Agent
+            │
+            ├── 📋 Task Planner Agent
+            │   │
+            │   └── Dynamic Agent Selection
+            │
+            ├── 🌱 Soil Health Agent
+            ├── 🌦️ Weather Intelligence Agent
+            ├── 🌾 Crop Recommendation Agent
+            ├── 🦠 Disease Diagnosis Agent
+            ├── 💧 Irrigation Advisor Agent
+            ├── 🧪 Fertilizer Advisor Agent
+            ├── 📈 Market Intelligence Agent
+            ├── 🏛️ Government Schemes Agent
+            ├── 🔔 Proactive Notification Agent
+            │
+            └── 🧠 Decision Synthesizer Agent
+                │
+                └── 📤 Final AI Recommendation
+                    │
+                    └── ⚡ Server-Sent Events (SSE)
+                        │
+                        └── 👨‍🌾 Farmer
 ```
 > 💡 **Tip:** Use [Antigravity CLI](https://antigravity.google/) for AI-assisted development - project context is pre-configured in `GEMINI.md`.
 
